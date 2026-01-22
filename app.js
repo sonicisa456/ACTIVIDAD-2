@@ -30,20 +30,20 @@ document.addEventListener('DOMContentLoaded', () => { // esto asegura que el DOM
         spanTexto.textContent = tarea.texto;// asigna el texto de la tarea
         if (tarea.hecha) spanTexto.style.textDecoration = 'line-through';// si la tarea está hecha, la tacha
 
-        const divBotones = document.createElement('div');
+        const divBotones = document.createElement('div'); // contenedor para los botones
 
-        const btnListo = document.createElement('button');
+        const btnListo = document.createElement('button');// botón para marcar como hecha
         btnListo.textContent = 'Listo';
         btnListo.onclick = () => {
-            tarea.hecha = !tarea.hecha;
-            spanTexto.style.textDecoration =
+            tarea.hecha = !tarea.hecha; //si le haces click al boton cambia el estado de hecha a no hecha y viceversa
+            spanTexto.style.textDecoration =// si la tarea está hecha, la tacha
                 tarea.hecha ? 'line-through' : 'none';
-            guardar();
+            guardar(); // guarda el estado actualizado en localStorage
         };
 
-        const btnEditar = document.createElement('button');
+        const btnEditar = document.createElement('button'); // botón para editar la tarea
         btnEditar.textContent = 'Editar';
-        btnEditar.classList.add('edit-btn');   // 👈 CLAVE
+        btnEditar.classList.add('edit-btn'); // esto agrega una clase al botón de editar
         btnEditar.onclick = () => {
             const nuevoTexto = prompt("Editar tarea:", tarea.texto);
             if (nuevoTexto && nuevoTexto.trim() !== '') {   
@@ -53,17 +53,17 @@ document.addEventListener('DOMContentLoaded', () => { // esto asegura que el DOM
             }
         };
 
-        const btnEliminar = document.createElement('button');
+        const btnEliminar = document.createElement('button'); // botón para eliminar la tarea
         btnEliminar.textContent = 'Eliminar';
-        btnEliminar.classList.add('delete-btn'); // 👈 CLAVE
+        btnEliminar.classList.add('delete-btn'); //
         btnEliminar.onclick = () => {
             tareas = tareas.filter(t => t !== tarea);
             guardar();
             li.remove();
         };
 
-        divBotones.appendChild(btnListo);
-        divBotones.appendChild(btnEditar);
+        divBotones.appendChild(btnListo); // agrega los botones al contenedor
+        divBotones.appendChild(btnEditar); 
         divBotones.appendChild(btnEliminar);
 
         li.appendChild(spanTexto);
