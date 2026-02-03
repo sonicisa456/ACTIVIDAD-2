@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Mis Proyectos</title>
+    <style>
+        body { font-family: sans-serif; background: #121212; color: white; text-align: center; padding: 50px; }
+        input { display: block; margin: 10px auto; padding: 10px; border-radius: 5px; border: none; }
+        button { padding: 10px 20px; background: #0070d1; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Iniciar Sesión</h2>
+    <input type="text" id="user" placeholder="Usuario">
+    <input type="password" id="pass" placeholder="Contraseña">
+    <button onclick="login()">Entrar</button>
+
+    <script src="users.js"></script>
+    <script>
+        function login() {
+            const u = document.getElementById('user').value;
+            const p = document.getElementById('pass').value;
+            const validUser = users.find(user => user.username === u && user.password === p);
+
+            if (validUser) {
+                sessionStorage.setItem('logged', 'true');
+                window.location.href = 'index.html';
+            } else {
+                alert("Usuario o contraseña incorrectos");
+            }
+        }
+    </script>
+</body>
+</html>
