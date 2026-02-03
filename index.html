@@ -3,62 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina de enlaces</title>
+    <title>Gestor de Tareas Neón</title>
     <style>
+        /* Estilos llamativos y modernos */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 50px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+            margin: 0;
         }
-        .boton{
-            display: inline-block;
-            padding: 15px 25px;
-            margin: 10px;
-            background-color: #0070d1;
-            color: white;
-            text-decoration: none;
+
+        h1 {
+            color: #00f2fe;
+            text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+            margin-bottom: 30px;
+        }
+
+        .input-container {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+        }
+
+        #Nueva-Tarea {
+            padding: 12px 15px;
+            border: 2px solid #333;
             border-radius: 8px;
-            font-weight: bold;
+            background: #1e1e1e;
+            color: white;
+            width: 250px;
+            outline: none;
+            transition: border-color 0.3s;
         }
-        .boton:hover {
-            background-color: #0056a5;
+
+        #Nueva-Tarea:focus {
+            border-color: #00f2fe;
+        }
+
+        #agregar-tarea {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        #agregar-tarea:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+        }
+
+        /* Lista de tareas */
+        #lista-tareas {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        li {
+            background: #1e1e1e;
+            margin-bottom: 12px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 12px;
+            border-left: 6px solid #00f2fe;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .completada {
+            text-decoration: line-through;
+            opacity: 0.5;
+            filter: grayscale(1);
+        }
+
+        /* Botones de acción */
+        .botones-accion button {
+            margin-left: 8px;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .btn-listo { background-color: #4caf50; color: white; }
+        .edit-btn { background-color: #ff9800; color: white; }
+        .delete-btn { background-color: #f44336; color: white; }
+
+        button:hover { opacity: 0.8; }
+
+        .volver {
+            margin-top: 40px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
-<style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 50px;
-        }
-        .boton{
-            display: inline-block;
-            padding: 15px 25px;
-            margin: 10px;
-            background-color: #0070d1;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-        }
-        .boton:hover {
-            background-color: #0056a5;
-        }
-    </style>
-</head>
-<body>
-    
-    <h1>Mis Proyectos Web</h1>
-    <p>Selecciona una página para visitar:</p>
 
-    <a href="sony.html" class="boton">Ir a Sony Corporation</a>
+    <h1>Mi Gestor de Tareas</h1>
 
-    <a href="gestor.html" class="boton">Ir al Gestor de Tareas</a>
+    <div class="input-container">
+        <input type="text" id="Nueva-Tarea" placeholder="¿Qué tienes pendiente?">
+        <button id="agregar-tarea">Añadir</button>
+    </div>
 
+    <ul id="lista-tareas">
+        </ul>
+
+    <a href="index.html" class="volver">← Volver al inicio</a>
+
+    <script src="script.js"></script>
 </body>
 </html>
