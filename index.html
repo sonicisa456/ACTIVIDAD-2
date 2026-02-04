@@ -2,74 +2,72 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>Sony Corporation - Página Empresarial</title>
+    <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Proyectos Web</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #121212; color: #e0e0e0; text-align: center; padding: 50px; }
-        
-        /* Botones principales */
-        .boton {
-            display: inline-block; padding: 15px 25px; margin: 10px;
-            background-color: #0070d1; color: white; border: none;
-            border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px;
-        }
-
-        /* Estilos del Modal (Ventana emergente) */
-        .modal {
-            display: none; position: fixed; z-index: 1; top: 0; left: 0;
-            width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);
-        }
-        .modal-content {
-            background-color: #1e1e1e; margin: 15% auto; padding: 20px;
-            border-radius: 10px; width: 300px; border: 1px solid #333;
-        }
-        input { display: block; margin: 10px auto; padding: 10px; width: 80%; border-radius: 5px; border: none; }
-        .btn-entrar { background: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-    </style>
 </head>
 <body>
 
-    <h1>Mis Proyectos Web</h1>
-    <p>Haz clic en un proyecto para acceder:</p>
-
-    <button onclick="abrirLogin('sony.html')" class="boton">Ir a Sony Corporation</button>
-    <button onclick="abrirLogin('gestor.html')" class="boton">Ir al Gestor de Tareas</button>
-
-    <div id="modalLogin" class="modal">
-        <div class="modal-content">
-            <h3>Iniciar Sesión</h3>
-            <input type="text" id="user" placeholder="Usuario">
-            <input type="password" id="pass" placeholder="Contraseña">
-            <button class="btn-entrar" onclick="validarAcceso()">Entrar</button>
-            <button onclick="cerrarModal()" style="background:none; border:none; color:gray; cursor:pointer; margin-top:10px;">Cancelar</button>
+    <header>
+        <a href="ACTIVIDAD_2/enlaceweb.html" class="boton-volver-header">← Volver a la web de enlaces</a>
+        <h1>Sony Corporation</h1>
+        <p>Empresa multinacional líder en electrónica de consumo, videojuegos y entretenimiento.</p>
+        
+        <div class="identidad">
+            <p><strong>Misión:</strong> Ser una empresa que inspira y satisface la curiosidad de las personas.</p>
+            <p><strong>Visión:</strong> Utilizar nuestra pasión por la tecnología para ofrecer emoción y entretenimiento.</p>
         </div>
-    </div>
+    </header>
 
-    <script src="users.js"></script>
-    <script>
-        let urlDestino = "";
+    <section id="proyectos">
+        <h2>Proyectos Destacados</h2>
 
-        function abrirLogin(url) {
-            urlDestino = url; // Guardamos a dónde quiere ir el usuario
-            document.getElementById('modalLogin').style.display = 'block';
-        }
+        <article class="proyecto">
+            <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300" alt="PlayStation 5">
+            <h3>PlayStation 5</h3>
+            <p>Innovación en el sector de videojuegos con tecnología de trazado de rayos y carga instantánea.</p>
+            <a href="https://www.playstation.com">Más información</a>
+        </article>
 
-        function cerrarModal() {
-            document.getElementById('modalLogin').style.display = 'none';
-        }
+        <article class="proyecto">
+            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300" alt="Cámaras Alpha">
+            <h3>Sony Alpha</h3>
+            <p>Desarrollo de sensores de imagen profesionales para fotografía y cine de alta resolución.</p>
+            <a href="https://store.sony.com.mx/ilce-6400m/p">Ver catálogo</a>
+        </article>
 
-        function validarAcceso() {
-            const u = document.getElementById('user').value;
-            const p = document.getElementById('pass').value;
+        <article class="proyecto">
+            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=300" alt="Audífonos">
+            <h3>Audio Hi-Res</h3>
+            <p>Creación de dispositivos con cancelación de ruido inteligente y sonido de alta fidelidad.</p>
+            <a href="https://www.sony.com/es/electronics/audio">Explorar sonido</a>
+        </article>
+    </section>
 
-            const coincidencia = users.find(user => user.username === u && user.password === p);
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="user_name" placeholder="Escribe tu nombre">
 
-            if (coincidencia) {
-                window.location.href = urlDestino; // Redirige al destino guardado
-            } else {
-                alert("Usuario o contraseña incorrectos");
-            }
-        }
-    </script>
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="user_email" placeholder="ejemplo@correo.com">
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="user_message" rows="4"></textarea>
+
+            <button type="submit">Enviar consulta</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Síguenos en: 
+            <a href="https://www.facebook.com/sony">Facebook</a> | 
+            <a href="https://www.instagram.com/sony">Instagram</a> | 
+            <a href="https://www.twitter.com/sony">Twitter</a>
+        </p>
+        <p>&copy; 2026 Sony Corporation. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 </html>
